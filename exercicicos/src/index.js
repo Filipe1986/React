@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import Saudacao from './componentes/Saudacao';
+import Saudacao from './componentes/Saudacao2';
 
 
 ReactDom.render(
