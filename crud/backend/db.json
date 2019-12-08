@@ -1,0 +1,15 @@
+{
+    "users": [
+    {
+        "id": 1,
+        "name": "Arthur de Oliveira",
+        "email": "aol@cod.com.br"
+    },
+    {
+        "id": 2,
+        "name": "Joao da Silva",
+        "email": "Joao@cod.com.br"
+    }
+
+    ]
+}
