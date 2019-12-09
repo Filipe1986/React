@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Main from '../template/Main'
 
+import '../template/Modal.css'
+
 const baseUrl = 'http://localhost:3001/users'
 const initialState =
 {
     user: { name: '', email: '' },
-    list: []
+    list: [], 
+    show: false 
 }
 
 const HeaderPros =
@@ -126,6 +129,15 @@ export default class UserCrud extends Component
                 })
     }
 
+    showModal = () => {
+        console.log("Show modal")
+        this.setState({ show: true });
+      }
+      
+      hideModal = () => {
+        this.setState({ show: false });
+      }
+
     renderTable()
     {
         return(
@@ -161,6 +173,11 @@ export default class UserCrud extends Component
                             onClick={() => this.remove(user)}>
                             <i className="fa fa-trash"></i>
                         </button>
+                        <Modal show={this.state.show} handleClose={this.hideModal} >
+                            <p>Modal</p>
+                            <p>Data</p>
+                        </Modal>
+                        <button type='button' onClick={this.showModal}>Open</button>
                     </td>
                 </tr>
             )
@@ -173,7 +190,27 @@ export default class UserCrud extends Component
             <Main {...HeaderPros}>
                 {this.renderForm()}
                 {this.renderTable()}
+
             </Main>
         )
     }
+
+    
 }
+
+const Modal = ({ handleClose, show, children }) => {
+    const showHideClassName = show ? 'modal display-block' : 'modal display-none';
+  
+    return (
+      <div className={showHideClassName}>
+        <section className='modal-main'>
+          {children}
+          <button
+            onClick={handleClose}>
+            Close
+          </button>
+        </section>
+      </div>
+    );
+  };
+  
