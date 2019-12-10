@@ -16,7 +16,7 @@ const HeaderPros =
 {
     icon: 'users',
     title: 'Usuários',
-    subtitle: 'Cadastro de usuários : Inclior, Listar, Alterar e Excluir'
+    subtitle: 'Cadastro de usuários : Incluir, Listar, Alterar e Excluir'
 }
 
 
@@ -129,14 +129,16 @@ export default class UserCrud extends Component
                 })
     }
 
-    showModal = () => {
+    showModal = () => 
+    {
         console.log("Show modal")
         this.setState({ show: true });
-      }
+    }
       
-      hideModal = () => {
+    hideModal = () => 
+    {
         this.setState({ show: false });
-      }
+    }
 
     renderTable()
     {
